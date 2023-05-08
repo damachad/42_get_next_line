@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 15:11:20 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/08 12:58:08 by damachad         ###   ########.fr       */
+/*   Created: 2023/05/08 11:59:06 by damachad          #+#    #+#             */
+/*   Updated: 2023/05/08 12:30:42 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-# include <stdlib.h>
-# include <unistd.h>
+int	main(void)
+{
+	int	fd;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-
-# endif
-
-char	*get_next_line(int fd);
-char	*alloc_copy_line(char *buf, int buf_len);
-char	*ft_strdup_2(const char *s, int size);
-
-#endif
+	fd = 0;
+	fd = open("test.txt", O_RDONLY);
+	printf("fd = %d\n", fd);
+	if (fd < 0)
+		printf("Error");
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	close(fd);
+	return (0);
+}
