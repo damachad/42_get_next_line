@@ -6,11 +6,23 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 09:16:28 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/08 12:59:37 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:58:28 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strdup_2(const char *s, int size)
 {

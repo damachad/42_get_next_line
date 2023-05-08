@@ -6,7 +6,7 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:59:06 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/08 12:30:42 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:56:56 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 		printf("Error");
 	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
+//	printf("%s", get_next_line(fd));
 	close(fd);
 	return (0);
 }
