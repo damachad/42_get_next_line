@@ -6,7 +6,7 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:59:06 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/08 14:56:56 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:36:04 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,25 @@
 
 int	main(void)
 {
-	int	fd;
+	int		fd;
+	char	*line;
 
 	fd = 0;
 	fd = open("test.txt", O_RDONLY);
 	printf("fd = %d\n", fd);
 	if (fd < 0)
 		printf("Error");
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-//	printf("%s", get_next_line(fd));
+	line = get_next_line(fd);
+	printf("%s", line);
+	line = NULL;
+	line = get_next_line(fd);
+	printf("%s", line);
+	line = NULL;
+	line = get_next_line(fd);
+	printf("%s", line);
+	line = NULL;
+	line = get_next_line(fd);
+	printf("%s", line);
 	close(fd);
 	return (0);
 }
