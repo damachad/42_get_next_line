@@ -6,37 +6,12 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:09:58 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/11 14:34:42 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:41:31 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*remain_text(char *text)
-{
-	char	*remainder;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (text[i] != '\0' && text[i] != '\n')
-		i++;
-	if (text[i] == '\0')
-	{
-		free(text);
-		return (NULL);
-	}
-	remainder = (char *)malloc((ft_strlen(text) - i) * sizeof(char));
-	if (!remainder)
-		return (NULL);
-	i++;
-	while (text[i])
-		remainder[j++] = text[i++];
-	remainder[j] = '\0';
-//	free(text);
-	return (remainder);
-}
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {

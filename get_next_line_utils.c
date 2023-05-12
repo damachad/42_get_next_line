@@ -6,13 +6,13 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 09:16:28 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/11 13:39:28 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:41:26 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(char *str, int c)
 {
 	if (!str)
 		return (NULL);
@@ -42,8 +42,8 @@ char	*ft_strchr(const char *str, int c)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*joined;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	i = -1;
 	j = 0;
@@ -57,8 +57,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	joined = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!joined)
 		return (NULL);
-	while (s1[++i] != '\0')
-		joined[i] = s1[i];
+	if (s1)
+		while (s1[++i] != '\0')
+			joined[i] = s1[i];
 	while (s2[j] != '\0')
 		joined[i++] = s2[j++];
 	joined[ft_strlen(s1) + ft_strlen(s2)] = '\0';
@@ -66,32 +67,14 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (joined);
 }
 
-char	*ft_strdup_2(const char *s, int size)
-{
-	int		i;
-	char	*ptr;
-
-	i = 0;
-	ptr = malloc(size * sizeof(char));
-	if (!ptr)
-		return (NULL);
-	while (i < size)
-	{
-		ptr[i] = s[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
-/*
 char	*ft_get_line(char *text)
 {
 	int		i;
 	char	*line;
 
-	if (!text || !text[0])
-		return (NULL);
 	i = 0;
+	if (!text[0])
+		return (NULL);
 	while (text[i] && text[i] != '\n')
 		i++;
 	if (text[i] == '\n')
@@ -110,29 +93,29 @@ char	*ft_get_line(char *text)
 	line[i] = '\0';
 	return (line);
 }
-*/
 
-char	*ft_get_line(char *text)
+char	*remain_text(char *text)
 {
+	char	*remainder;
 	int		i;
-	char	*line;
+	int		j;
 
 	i = 0;
-	if (!text || !text[0])
-		return (NULL);
-	while (text[i])
-	{
-		if (text[i] == '\n')
-		{
-			line = ft_strdup_2(text, i + 1);
-			if (!line)
-				return (NULL);
-			return (line);
-		}
+	j = 0;
+	while (text[i] != '\0' && text[i] != '\n')
 		i++;
+	if (text[i] == '\0')
+	{
+		free(text);
+		return (NULL);
 	}
-	line = ft_strdup_2(text, i);
-	if (!line)
-				return (NULL);
-	return (line);
+	remainder = (char *)malloc((ft_strlen(text) - i) * sizeof(char));
+	if (!remainder)
+		return (NULL);
+	i++;
+	while (text[i])
+		remainder[j++] = text[i++];
+	remainder[j] = '\0';
+	free(text);
+	return (remainder);
 }

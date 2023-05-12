@@ -6,7 +6,7 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:11:20 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/11 14:53:25 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:38:31 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@
 
 # endif
 
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen(char *str);
 char	*get_next_line(int fd);
 char	*remain_text(char *text);
 char	*ft_get_line(char *text);
-char	*ft_strchr(const char *str, int c);
-char	*ft_strdup_2(const char *s, int size);
+char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
 
 #endif
