@@ -6,37 +6,48 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:09:58 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/15 13:46:53 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:09:01 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*ft_read(int fd, char *read_line)
 {
-	static char	*read_text;
-	char		*buff;
-	int			r_bytes;
+	char	*buff;
+	int		r_bytes;
 
 	r_bytes = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
 	buff = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
-	while (r_bytes != 0 && !ft_strchr(read_text, '\n'))
+	while (r_bytes > 0 && !ft_strchr(read_line, '\n'))
 	{
 		r_bytes = read(fd, buff, BUFFER_SIZE);
 		if (r_bytes == -1)
 		{
 			free(buff);
+			free(read_line);
 			return (NULL);
 		}
 		buff[r_bytes] = '\0';
-		read_text = ft_strjoin(read_text, buff);
+		read_line = ft_strjoin(read_line, buff);
 	}
 	free(buff);
-	buff = ft_get_line(read_text);
-	read_text = remain_text(read_text);
-	return (buff);
+	return (read_line);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*read_line;
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
+		return (NULL);
+	read_line = ft_read(fd, read_line);
+	if (!read_line)
+		return (NULL);
+	line = ft_get_line(read_line);
+	read_line = remain_text(read_line);
+	return (line);
 }

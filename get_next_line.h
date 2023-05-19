@@ -6,7 +6,7 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:11:20 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/15 11:00:15 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:08:36 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*remain_text(char *text);
 char	*ft_get_line(char *text);
 char	*ft_strchr(char *str, char c);
 char	*ft_strjoin(char *s1, char *s2);
+char	*ft_read(int fd, char *read_line);
 
 #endif
