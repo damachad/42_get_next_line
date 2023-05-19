@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:11:20 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/15 11:00:15 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:45:55 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -27,5 +27,6 @@ char	*remain_text(char *text);
 char	*ft_get_line(char *text);
 char	*ft_strchr(char *str, char c);
 char	*ft_strjoin(char *s1, char *s2);
+char	*read_from(int fd, char *read_text);
 
 #endif

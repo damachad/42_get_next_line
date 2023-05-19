@@ -16,25 +16,52 @@
 
 int	main(void)
 {
-	int		fd = 0;
+	int		fd1 = 0;
+	int		fd2 = 0;
+	int		fd3 = 0;
 	char	*line = NULL;
 
-	fd = open("test1.txt", O_RDONLY);
-	printf("fd = %d\n", fd);
-	if (fd < 0)
-	{
-		printf("Error: failed to open file\n");
-		return (1);
-	}
-	while ((line = get_next_line(fd)))
-	{
-		printf("%s", line);
-		free(line);
-	}
-	if (line == NULL)
-	{
-		printf("End fo file reached\n");
-	}
-	close(fd);
+	fd1 = open("test1.txt", O_RDONLY);
+	fd2 = open("test2.txt", O_RDONLY);
+	fd3 = open("test3.txt", O_RDONLY);
+	line = get_next_line(fd1);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd2);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd3);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd1);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd2);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd3);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd1);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd2);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd3);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd1);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd2);
+	printf("%s", line);
+	free(line);
+	line = get_next_line(fd3);
+	printf("%s", line);
+	free(line);
+	close(fd1);
+	close(fd2);
+	close(fd3);
 	return (0);
 }
