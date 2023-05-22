@@ -6,7 +6,7 @@
 /*   By: damachad <damachad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:09:58 by damachad          #+#    #+#             */
-/*   Updated: 2023/05/19 14:09:01 by damachad         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:22:03 by damachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*get_next_line(int fd)
 	static char	*read_line;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	read_line = ft_read(fd, read_line);
 	if (!read_line)
