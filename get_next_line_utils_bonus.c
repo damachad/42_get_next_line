@@ -103,7 +103,7 @@ char	*remain_text(char *text)
 	j = 0;
 	while (text[i] != '\0' && text[i] != '\n')
 		i++;
-	if (text[i] == '\0')
+	if (text[i] == '\0' || text[i + 1] == '\0')
 	{
 		free(text);
 		return (NULL);
